@@ -1,24 +1,14 @@
-import React, { useState } from 'react';
-
 export default function ImageWithFallback({ src, alt, className, style }) {
-  const [imgSrc, setImgSrc] = useState(src);
-  const [loaded, setLoaded] = useState(false);
-
   return (
     <img
-      src={imgSrc}
+      src={src}
       alt={alt}
       className={className}
-      style={{
-        ...style,
-        opacity: loaded ? 1 : 0,
-        transition: 'opacity 0.4s ease-in-out',
-      }}
+      style={style}
       loading="lazy"
-      onLoad={() => setLoaded(true)}
-      onError={() => {
-        setImgSrc('https://rickandmortyapi.com/api/character/avatar/19.jpeg');
-        setLoaded(true);
+      onError={(e) => {
+        e.target.onerror = null;
+        e.target.src = 'https://rickandmortyapi.com/api/character/avatar/19.jpeg';
       }}
     />
   );
