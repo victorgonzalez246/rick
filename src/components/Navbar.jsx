@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useStore } from '../store/useStore';
+import ImageWithFallback from './ImageWithFallback';
 
 export default function Navbar({ totalCharacters = 0 }) {
   const { favorites, theme, toggleTheme } = useStore();
@@ -39,8 +40,12 @@ export default function Navbar({ totalCharacters = 0 }) {
       <Link to="/" style={{ textDecoration: 'none' }}>
         <div className="portal-title-wrapper">
           <div className="faces-logo" title="Rick y Morty">
-            <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="Rick" className="face-img rick-face" />
-            <img src="https://rickandmortyapi.com/api/character/avatar/2.jpeg" alt="Morty" className="face-img morty-face" />
+            <div className="face-img rick-face">
+              <ImageWithFallback src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="Rick" className="face-img" style={{ position: 'relative' }} />
+            </div>
+            <div className="face-img morty-face">
+              <ImageWithFallback src="https://rickandmortyapi.com/api/character/avatar/2.jpeg" alt="Morty" className="face-img" style={{ position: 'relative' }} />
+            </div>
           </div>
           <h1 className="main-title">RICK AND MORTY</h1>
         </div>

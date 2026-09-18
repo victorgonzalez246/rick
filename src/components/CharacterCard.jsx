@@ -1,6 +1,6 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { useStore } from '../store/useStore';
+import ImageWithFallback from './ImageWithFallback';
 
 export default function CharacterCard({ character }) {
   const { favorites, toggleFavorite } = useStore();
@@ -26,7 +26,7 @@ export default function CharacterCard({ character }) {
     <article className="character-card">
       <Link to={`/character/${character.id}`} style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column', flex: 1 }}>
         <div className="card-image-container">
-          <img src={character.image} alt={character.name} className="card-image" loading="lazy" />
+          <ImageWithFallback src={character.image} alt={character.name} className="card-image" />
         </div>
 
         <div className="card-body">

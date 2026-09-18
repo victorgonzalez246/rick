@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import { fetchCharacterById, fetchMultipleEpisodes } from '../services/rickMortyApi';
 import { useStore } from '../store/useStore';
 import Loader from '../components/Loader';
+import ImageWithFallback from '../components/ImageWithFallback';
 
 export default function CharacterDetail() {
   const { id } = useParams();
@@ -75,7 +76,7 @@ export default function CharacterDetail() {
       <div className="modal-content" onClick={e => e.stopPropagation()} style={{ cursor: 'default' }}>
         <div className="modal-header">
           <div className="modal-image-wrapper">
-            <img src={character.image} alt={character.name} className="modal-image" />
+            <ImageWithFallback src={character.image} alt={character.name} className="modal-image" />
           </div>
           <div className="modal-title-area">
             <h2 className="modal-name">{character.name}</h2>
