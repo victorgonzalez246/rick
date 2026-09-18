@@ -84,30 +84,43 @@ body {
   margin-bottom: 8px;
 }
 
-.portal-logo-glow {
-  width: 54px;
-  height: 54px;
-  border-radius: 50%;
-  background: conic-gradient(from 0deg, var(--portal-green), var(--portal-acid), var(--portal-purple), var(--portal-green));
-  animation: spinPortal 6s linear infinite;
-  box-shadow: 0 0 25px var(--portal-green-glow);
+.faces-logo {
+  width: 70px;
+  height: 60px;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-right: 5px;
 }
 
-.portal-logo-glow::after {
-  content: '';
-  width: 38px;
-  height: 38px;
-  background: #0a0c10;
+.face-img {
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
+  position: absolute;
+  border: 2px solid var(--portal-green);
+  box-shadow: 0 0 15px var(--portal-green-glow);
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
-@keyframes spinPortal {
-  100% {
-    transform: rotate(360deg);
-  }
+.rick-face {
+  left: 0;
+  z-index: 2;
+}
+
+.morty-face {
+  right: 0;
+  z-index: 1;
+}
+
+.faces-logo:hover .rick-face {
+  transform: translateX(-5px) scale(1.1) rotate(-10deg);
+}
+
+.faces-logo:hover .morty-face {
+  transform: translateX(5px) scale(1.1) rotate(10deg);
 }
 
 .main-title {
