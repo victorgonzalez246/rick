@@ -40,12 +40,8 @@ export default function Navbar({ totalCharacters = 0 }) {
       <Link to="/" style={{ textDecoration: 'none' }}>
         <div className="portal-title-wrapper">
           <div className="faces-logo" title="Rick y Morty">
-            <div className="face-img rick-face">
-              <ImageWithFallback src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="Rick" className="face-img" style={{ position: 'relative' }} />
-            </div>
-            <div className="face-img morty-face">
-              <ImageWithFallback src="https://rickandmortyapi.com/api/character/avatar/2.jpeg" alt="Morty" className="face-img" style={{ position: 'relative' }} />
-            </div>
+            <ImageWithFallback src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="Rick" className="face-img rick-face" />
+            <ImageWithFallback src="https://rickandmortyapi.com/api/character/avatar/2.jpeg" alt="Morty" className="face-img morty-face" />
           </div>
           <h1 className="main-title">RICK AND MORTY</h1>
         </div>
